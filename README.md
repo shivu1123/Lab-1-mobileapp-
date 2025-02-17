@@ -1,68 +1,66 @@
-Here’s a **README.md** file for your repository:  
+Here's a **README.md** file tailored for your **Flutter-based Android project** with static beach images:  
 
-# Lab-1 Mobile App
+# 🌊 Lab-1 Mobile App
 
-## 📌 Project Overview
-This is the **Lab-1 Mobile App** project, designed as part of a learning exercise. The project involves developing a mobile application using modern technologies, implementing core functionalities, and ensuring a user-friendly interface.
+## 📱 Overview  
+This is an **Android mobile application** built using **Flutter & Dart** in **Android Studio**. The app includes **static beach images** and showcases Flutter's UI capabilities for rendering images and designing a smooth user experience.
 
-## 🚀 Features
-- 📱 Mobile-friendly UI  
-- 🔄 Basic navigation and user interactions  
-- 🛠️ Core functionalities (specific to the lab requirements)  
-- 🎯 Optimized performance  
+## 🚀 Features  
+- 🏝️ Displays **static images of a beach**  
+- 📱 Built using **Flutter & Dart**  
+- 🎨 Well-structured UI with responsive design  
+- ⚡ Smooth performance with Flutter’s widget system  
 
-## 🏗️ Technologies Used
-- **Programming Language:** [Specify language, e.g., Java, Kotlin, Swift, Flutter, React Native]  
-- **IDE/Tools:** [Specify tools, e.g., Android Studio, Xcode, VS Code]  
-- **Database (if any):** [e.g., Firebase, SQLite, Room]  
+## 🛠️ Technologies Used  
+- **Framework:** Flutter  
+- **Language:** Dart  
+- **IDE:** Android Studio  
+- **Image Assets:** Static beach images stored locally  
 
-## 📂 Project Structure
-```
-Lab-1-mobileapp/
-│-- src/                     # Source code
-│-- assets/                  # Images, icons, or resources
-│-- README.md                # Project documentation
-│-- .gitignore               # Files to be ignored by Git
-│-- package.json (if applicable) # Dependencies and scripts
-```
 
-## 🛠️ Setup & Installation
+## 🛠️ Setup & Installation  
 1. **Clone the repository**  
    ```bash
-   git clone https://github.com/shivu1123/Lab-1-mobileapp-.git
+   git clone https://github.com/shivu1123/Lab-1-mobileapp.git
    ```
 2. **Navigate into the project directory**  
    ```bash
-   cd Lab-1-mobileapp-
+   cd Lab-1-mobileapp
    ```
-3. **Install dependencies** (if applicable)  
+3. **Get dependencies**  
    ```bash
-   npm install   # For React Native
-   flutter pub get  # For Flutter
+   flutter pub get
    ```
-
 4. **Run the application**  
    ```bash
-   npm start      # For React Native
-   flutter run    # For Flutter
+   flutter run
    ```
 
-## 🛠️ Contribution Guidelines
-- Fork the repository  
-- Create a feature branch (`git checkout -b feature-branch`)  
-- Commit changes (`git commit -m "Your message"`)  
-- Push to the branch (`git push origin feature-branch`)  
-- Create a Pull Request  
+## 🖼️ Static Beach Images  
+The app includes **locally stored beach images**. Ensure that the `assets/` folder is correctly referenced in the `pubspec.yaml` file:
+```yaml
+flutter:
+  assets:
+    - assets/beach1.jpg
+    - assets/beach2.jpg
+```
 
-## 📝 License
+## 🚀 How to Contribute  
+1. **Fork the repository**  
+2. **Create a feature branch** (`git checkout -b feature-name`)  
+3. **Commit your changes** (`git commit -m "Added new feature"`)  
+4. **Push to GitHub** (`git push origin feature-name`)  
+5. **Create a Pull Request**  
+
+## 📄 License  
 This project is licensed under the **MIT License** – see the [LICENSE](LICENSE) file for details.
 
-## 📞 Contact
-For any issues or suggestions, feel free to reach out or create an issue in the repository.
+## 📞 Contact  
+For any questions or improvements, feel free to **open an issue** in this repository.
 
 ---
 
-🚀 Happy Coding! 🚀
+🚀 **Happy Coding!** 
 ```
 
-Would you like any modifications or additional details? 😊
+This README is **Flutter-specific** and includes everything needed for your **Android project with static beach images**. Let me know if you want any modifications! 😊
