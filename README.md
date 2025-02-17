@@ -1,6 +1,5 @@
 Here’s a **README.md** file for your repository:  
 
-```markdown
 # Lab-1 Mobile App
 
 ## 📌 Project Overview
