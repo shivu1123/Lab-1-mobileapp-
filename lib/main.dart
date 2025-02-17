@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart'; // Optional: For controlling status bar color
+import 'package:flutter/services.dart'; // Status bar ka color control karne ke liye
 
 void main() {
-  runApp(const BeachApp());
+  runApp(const BeachApp()); // Application ko run kar raha hai
 }
 
 class BeachApp extends StatelessWidget {
@@ -10,25 +10,27 @@ class BeachApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // Optional: Lock orientation to portrait if desired.
+    // Application sirf portrait mode me run karega
     SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
+
     return MaterialApp(
-      title: 'Canadian Beaches',
-      debugShowCheckedModeBanner: false,
+      title: 'Canadian Beaches', // App ka title set kiya hai
+      debugShowCheckedModeBanner: false, // Debug banner hide kiya hai
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.blue, // Theme ka primary color set kiya hai
       ),
-      home: const BeachListScreen(),
+      home: const BeachListScreen(), // Home screen set kiya hai
     );
   }
 }
 
+// Beach ka data store karne ke liye ek model class banayi hai
 class Beach {
-  final String name;
-  final String location;
-  final String image;
-  final double rating;
-  final String description;
+  final String name; // Beach ka naam
+  final String location; // Beach ka location
+  final String image; // Beach ka image path
+  final double rating; // Beach ka rating (1 se 5 tak)
+  final String description; // Beach ka description
 
   const Beach({
     required this.name,
@@ -39,7 +41,7 @@ class Beach {
   });
 }
 
-// List of 5 Canadian beaches
+// Yaha pe beaches ki list banayi hai
 const List<Beach> beaches = [
   Beach(
     name: 'Wasaga Beach',
@@ -47,7 +49,7 @@ const List<Beach> beaches = [
     image: 'assets/images/wasaga_beach.jpg',
     rating: 4.5,
     description:
-    'Wasaga Beach is known as the world\'s longest freshwater beach. It offers an expansive stretch of sandy shoreline, vibrant summer activities, and beautiful sunsets.',
+        'Wasaga Beach world ka sabse lamba freshwater beach maana jata hai. Yaha pe sand, summer activities aur sundown views best hain.',
   ),
   Beach(
     name: 'Grand Beach',
@@ -55,7 +57,7 @@ const List<Beach> beaches = [
     image: 'assets/images/grand_beach.jpg',
     rating: 4.2,
     description:
-    'Grand Beach is a popular destination in Muskoka with soft white sands, clear blue water, and plenty of recreational activities for families.',
+        'Grand Beach Muskoka ka ek popular destination hai, jisme soft white sand aur blue water milta hai.',
   ),
   Beach(
     name: 'Ingonish Beach',
@@ -63,7 +65,7 @@ const List<Beach> beaches = [
     image: 'assets/images/ingonish_beach.jpg',
     rating: 4.7,
     description:
-    'Ingonish Beach in Nova Scotia offers breathtaking coastal views and a serene environment, perfect for those seeking a peaceful retreat by the sea.',
+        'Ingonish Beach Nova Scotia ka ek peaceful aur relaxing jagah hai, jisme beautiful coastal views milte hain.',
   ),
   Beach(
     name: 'Long Beach',
@@ -71,7 +73,7 @@ const List<Beach> beaches = [
     image: 'assets/images/long_beach.jpg',
     rating: 4.3,
     description:
-    'Located in Pacific Rim National Park, Long Beach is known for its rugged beauty, dramatic sunsets, and excellent opportunities for beachcombing and nature walks.',
+        'Pacific Rim National Park me located ye beach nature lovers ke liye perfect hai.',
   ),
   Beach(
     name: 'Singing Sands Beach',
@@ -79,23 +81,23 @@ const List<Beach> beaches = [
     image: 'assets/images/singing_sands_beach.jpg',
     rating: 4.6,
     description:
-    'Singing Sands Beach on Prince Edward Island is famous for the unique sound its sand makes underfoot. It\'s a magical spot for relaxation and exploration.',
+        'Ye beach isliye famous hai kyunki yaha ki sand chalne par sound produce karti hai.',
   ),
 ];
 
+// BeachListScreen class jo saari beaches ko ek list me show karegi
 class BeachListScreen extends StatelessWidget {
   const BeachListScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    // Using ListView with a header (welcome message) and the list of beaches.
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Canadian Beaches'),
+        title: const Text('Canadian Beaches'), // App bar ka title
       ),
       body: ListView(
         children: [
-          // Welcome Message
+          // Welcome message jo user ko greet karega
           Container(
             padding: const EdgeInsets.all(16.0),
             color: Colors.blue.shade50,
@@ -103,7 +105,7 @@ class BeachListScreen extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  'Welcome to Beach Info App',
+                  'Welcome to Beach Info App', // Welcome text
                   style: Theme.of(context)
                       .textTheme
                       .titleLarge
@@ -111,18 +113,19 @@ class BeachListScreen extends StatelessWidget {
                 ),
                 const SizedBox(height: 4),
                 Text(
-                  'Select a beach to get detailed information',
+                  'Select a beach to get detailed information', // User ko instructions deta hai
                   style: Theme.of(context).textTheme.bodyMedium,
                 ),
               ],
             ),
           ),
-          const Divider(height: 1),
-          // List of Beaches
+          const Divider(height: 1), // Line separator
+
+          // Beaches list generate ki gayi hai
           ...beaches.map((beach) {
             return ListTile(
               contentPadding:
-              const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                  const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
               leading: ClipRRect(
                 borderRadius: BorderRadius.circular(8.0),
                 child: Image.asset(
@@ -132,10 +135,11 @@ class BeachListScreen extends StatelessWidget {
                   fit: BoxFit.cover,
                 ),
               ),
-              title: Text(beach.name),
-              subtitle: Text(beach.location),
-              trailing: const Icon(Icons.arrow_forward_ios),
+              title: Text(beach.name), // Beach ka naam show karega
+              subtitle: Text(beach.location), // Beach ka location show karega
+              trailing: const Icon(Icons.arrow_forward_ios), // Forward arrow icon
               onTap: () {
+                // Jab kisi beach pe click hoga to detail screen pe jayega
                 Navigator.push(
                   context,
                   MaterialPageRoute(
@@ -151,29 +155,30 @@ class BeachListScreen extends StatelessWidget {
   }
 }
 
+// Ye screen ek specific beach ka pura detail dikhayegi
 class BeachDetailScreen extends StatelessWidget {
   final Beach beach;
   const BeachDetailScreen({Key? key, required this.beach}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    // Detail screen with image, title, location, rating, description, and three action buttons.
     return Scaffold(
       appBar: AppBar(
-        title: Text(beach.name),
+        title: Text(beach.name), // App bar pe beach ka naam show karega
       ),
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // Beach Image
+            // Beach ka image display karega
             Image.asset(
               beach.image,
               width: double.infinity,
               height: 240,
               fit: BoxFit.cover,
             ),
-            // Title, Location, and Rating Section
+
+            // Beach ke naam, location aur rating dikhayega
             Padding(
               padding: const EdgeInsets.all(16.0),
               child: Column(
@@ -210,9 +215,11 @@ class BeachDetailScreen extends StatelessWidget {
                 ],
               ),
             ),
-            // Action Buttons: Call, Route, Share
+
+            // Action buttons (Call, Route, Share)
             buttonSection(context),
-            // Description Section
+
+            // Beach ka description dikhayega
             Padding(
               padding: const EdgeInsets.all(16.0),
               child: Text(
@@ -227,7 +234,7 @@ class BeachDetailScreen extends StatelessWidget {
     );
   }
 
-  // Build a row of action buttons.
+  // Buttons ke liye ek function jo call, route aur share button show karega
   Widget buttonSection(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16.0),
@@ -237,39 +244,6 @@ class BeachDetailScreen extends StatelessWidget {
           buildButtonColumn(context, Icons.call, 'CALL'),
           buildButtonColumn(context, Icons.near_me, 'ROUTE'),
           buildButtonColumn(context, Icons.share, 'SHARE'),
-        ],
-      ),
-    );
-  }
-
-  // Reusable widget for creating a button column.
-  Widget buildButtonColumn(BuildContext context, IconData icon, String label) {
-    return TextButton(
-      onPressed: () {
-        // Display a simple SnackBar for demonstration.
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(
-            content: Text('$label button clicked'),
-            duration: const Duration(seconds: 1),
-          ),
-        );
-      },
-      style: TextButton.styleFrom(
-        padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
-      ),
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Icon(icon, color: Colors.blue),
-          const SizedBox(height: 8),
-          Text(
-            label,
-            style: const TextStyle(
-              fontSize: 12,
-              fontWeight: FontWeight.w400,
-              color: Colors.blue,
-            ),
-          ),
         ],
       ),
     );
